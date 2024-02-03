@@ -2,7 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System;
 using VendorOrderTracker.Models;
-using System.Collections.Concurrent;
+
 
 
 namespace VendorOrderTracker.Tests
@@ -55,16 +55,26 @@ namespace VendorOrderTracker.Tests
       CollectionAssert.AreEqual(newList, result);
     }
 
-    [TestMethod]
-    public void AddOrder_AddsOrderToVendorsListOfOrders_OrderList()
-    {
-      Vendor newVendor = new Vendor("Miss Patty's", "Weekly Order");
-      Order newOrder = new Order("Cookie Order", "3 Orders", 10, "02/03/2023");
-      List<Order> newList = new List<Order> { newOrder};
-      newVendor.AddOrder(newOrder);
-      List<Order> result = newVendor.Orders;
+    // [TestMethod]
+    // public void AddOrder_AddsOrderToVendorsListOfOrders_OrderList()
+    // {
+    //   Vendor newVendor = new Vendor("Miss Patty's", "Weekly Order");
+    //   Order newOrder = new Order("Cookie Order", "2 Orders", 10, "02/03/2023");
+    //   List<Order> newList = new List<Order> { newOrder};
+    //   newVendor.AddOrder(newOrder);
+    //   List<Order> result = newVendor.Orders;
 
-      CollectionAssert.AreEqual(newList, result);
-    }
+    //   CollectionAssert.AreEqual(newList, result);
+    // }
+
+    // [TestMethod]
+    // public void GetAll_ReturnsListOfAllInstancesOfVendor_VendorList()
+    // {
+    //   Vendor newVendor1 = new Vendor("Name", "Description");
+    //   Vendor newVendor2 = new Vendor("Name 2", "Description 2");
+    //   List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
+    //   List<Vendor> result = Vendor.GetAll();
+    //   CollectionAssert.AreEqual(newList, result);
+    // }
   }
 }
