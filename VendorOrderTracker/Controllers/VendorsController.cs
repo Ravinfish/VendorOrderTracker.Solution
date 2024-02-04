@@ -42,9 +42,9 @@ namespace VendorOrderTracker.Controllers
       Vendor foundVendor = Vendor.Find(vendorId);
       Order newOrder = new Order(title, description, price, date);
       foundVendor.AddOrder(newOrder);
-      return RedirectToAction("Details", foundVendor);
+
+      return View("Show", foundVendor);
     }
-    //can add edit and delete if more time below
 
   }
 }
