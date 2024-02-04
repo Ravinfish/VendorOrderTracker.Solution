@@ -2,20 +2,27 @@
   Layout = "_Layout";
 }
 
-  <form action="/order" method="post">
-    <h3 id="formTitle">New Order</h3>
-    <label for="ordertitle">Title</label>
-    <input id="ordertitle" name="ordertitle" type="text">
-    <br>
-    <label for="">Description</label>
-    <input id="orderDescription" name="orderDescription" type="text">
-    <br>
-    <label for="orderPrice">Price</label>
-    <input id="orderPrice" name="orderPrice" type="text">
-    <br>
-    <label for="orderDate">Date</label>
-    <input id="orderDate" name="orderDate" type="text">
-    <br>
-    <button id="formButton" type="submit">Submit</button>
-  </form>
+@using VendorOrderTracker.Models;
 
+<h1>Add a new order</h1>
+<h3>for @Model.Name</h3>
+
+<form action="/vendors/@Model.Id/orders" method="post">
+  <h3 id="formTitle">New Order</h3>
+  <label for="title">Title</label>
+  <input id="title" name="title" type="text" placeholder="Order Title" required>
+  <br>
+  <label for="description">Enter a Description:</label>
+  <textarea id="description" name="description" type="text" placeholder="Order Description" required></textarea>
+  <br>
+  <label for="price">Price</label>
+  <input id="price" name="price" type="number" placeholder="Enter Price" required>
+  <br>
+  <label for="date">Enter the Order Date</label>
+  <input id="datee" name="date" type="date" required>
+  <br>
+  <button id="formButton" type="submit">Add Order</button>
+</form>
+
+<button><a href="/vendors/@Model.Id">Back to the Orders</a></button>
+<button><a href='/vendors'>Vendors List</a></button>

@@ -29,7 +29,7 @@ namespace VendorOrderTracker.Controllers
     }
 
     //get and show specified vendor details
-    [HttpGet("/vendors/{id}")]
+    [HttpGet("/vendors/{vendorId}")]
     public ActionResult Show(int vendorId)
     {
       Vendor foundVendor = Vendor.Find(vendorId);
