@@ -26,5 +26,6 @@ This is a simple web application to help a fictional bakery ownter keep track of
 I had some issues with the testing. I ended up adding all the tests at once, after I couldn't get a single test to pass and did a final test and was able to recieve a pass for all of the tests. 
 
 ## Licence
+Code Licenced under GPL
 
 Copyright (c) February 2024 Ravin Fisher
