@@ -12,3 +12,13 @@
 {
   <p>This vendor has no orders.</p>
 }
+
+<ul>
+  @foreach (Order order in @Model.Orders)
+  {
+    <li><h2><a href="/vendors/@Model.Id/Orders/@order.Id">@order.Title</a></h2></li>
+  }
+</ul>
+
+<button><a href="/vendors/@Model.Id/orders/new">Add a Order</a></button>
+<button><a href="/vendors">Back to Vendors</a></button>
