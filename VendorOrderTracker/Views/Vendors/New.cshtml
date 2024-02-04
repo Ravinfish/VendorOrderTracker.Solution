@@ -2,23 +2,17 @@
   Layout = "_Layout";
 }
 
-  <form action="/vendors" method="post">
-    <h3 id="formTitle">New Order</h3>
-    <label for="ordertitle">Title</label>
-    <input id="ordertitle" name="ordertitle" type="text">
-    <br>
-    <label for="">Description</label>
-    <input id="orderDescription" name="orderDescription" type="text">
-    <br>
-    <label for="orderPrice">Price</label>
-    <input id="orderPrice" name="orderPrice" type="text">
-    <br>
-    <label for="orderDate">Date</label>
-    <input id="orderDate" name="orderDate" type="text">
-    <br>
-    <button id="formButton" type="submit">Submit</button>
-  </form>
+<h1>Add a new Vendor</h1>
 
-</body>
+<form action="/vendors" method="post">
+  <label for="name">Vendor's Name:</label>
+  <input id="name" name="name" type="text" placeholder="Name" required>
+  <br>
+  <label for="description">Vendor's Description:</label>
+  <input id="description" name="description" type="text" placeholder="Description" required>
+  <br>
+  <button id="formButton" type="submit">Submit</button>
+</form>
 
-</html>
+<button><a href="/vendors">Back to Vendors</a></button>
+<button><a href='/'>Home Page</a></button>
