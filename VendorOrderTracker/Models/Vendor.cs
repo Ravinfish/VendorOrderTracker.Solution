@@ -10,10 +10,10 @@ namespace VendorOrderTracker.Models
 
     private static List<Vendor> _instances = new List<Vendor> {};
     public int Id { get;}
-    public Vendor(string name, string description)
+    public Vendor(string vendorName, string vendorDescription)
     {
-      Name = name;
-      Description = description;
+      Name = vendorName;
+      Description = vendorDescription;
       Orders = new List<Order> {};
       _instances.Add(this);
       Id = _instances.Count;

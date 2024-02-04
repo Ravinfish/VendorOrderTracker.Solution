@@ -1,3 +1,14 @@
 @{
   Layout = "_Layout";
 }
+
+@using VendorOrderTracker.Models
+
+<h1>Vendor Info:</h1>
+<h3>Name: @Model.Name</h3>
+<h3>@Model.Description</h3>
+
+@if  (Model.Orders.Count == 0)
+{
+  <p>This vendor has no orders.</p>
+}

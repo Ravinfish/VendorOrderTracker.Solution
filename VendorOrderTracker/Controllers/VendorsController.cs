@@ -6,7 +6,7 @@ namespace VendorOrderTracker.Controllers
 {
   public class VendorsController : Controller
   {
-
+    //List of vendors to display
     [HttpGet("/vendors")]
     public ActionResult Index()
     {
@@ -14,56 +14,37 @@ namespace VendorOrderTracker.Controllers
       List<Vendor> allVendors = Vendor.GetAll();
       return View(allVendors);
     }
-
-    [HttpGet("/vendors/new")]
+    //Get the form for the new  vendor
+    [HttpGet("/vendor/new")]
     public ActionResult New()
     {
       return View();
     }
-
+    //create new vendor
     [HttpPost("/vendors")]
-    public ActionResult Create(string name, string description)
+    public ActionResult Create(string vendorName, string vendorDescription)
     {
-      Vendor newVendor = new Vendor(name, description);
+      Vendor newVendor = new Vendor(vendorName, vendorDescription);
       return RedirectToAction("Index");
     }
 
-    // [HttpGet("/vendors/{id}")]
-    // public ActionResult Details(int id)
-    // {
-    //   Pet foundPet = Pet.Find(id);
-    //   return View(foundPet);
-    // }
-
-    // [HttpPost("/vendors/{id}")]
-    // public ActionResult HandlePetAction(int id, string action)
-    // {
-    //   Pet pet = Pet.Find(id);
-
-    //   if (pet == null)
-    //   {
-    //     return NotFound();
-    //   }
-
-    //   switch (action)
-    //   {
-    //     case "attention":
-    //       pet.Attention();
-    //       break;
-    //     case "feed":
-    //       pet.Feed();
-    //       break;
-    //     case "rest":
-    //       pet.Rest();
-    //       break;
-
-    //     default:
-    //       return BadRequest("Invalid action");
-    //   }
-
-    //   return RedirectToAction("Details", new { id = pet.Id });
-    // }
-
+    //get and show specified vendor details
+    [HttpGet("/vendors/{id}")]
+    public ActionResult Show(int vendorId)
+    {
+      Vendor foundVendor = Vendor.Find(vendorId);
+      return View(foundVendor);
+    }
+    //create a new order for a specific vendor and display order on vendor page
+    [HttpPost("/vendors/{vendorId}/orders")]
+    public ActionResult Create(int vendorId, string title, string description, float price, string date)
+    {
+      Vendor foundVendor = Vendor.Find(vendorId);
+      Order newOrder = new Order(title, description, price, date);
+      foundVendor.AddOrder(newOrder);
+      return RedirectToAction("Details", foundVendor);
+    }
+    //can add edit and delete if more time below
 
   }
 }
